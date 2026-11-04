@@ -143,7 +143,12 @@ export default function DotGrid({
       const context = canvas?.getContext('2d')
       if (!canvas || !context) return
 
+      // Clear in raw canvas pixels; with the pixel-ratio transform applied, a zoomed-out
+      // browser (ratio < 1) would only clear the top-left part and leave old frames behind.
+      context.save()
+      context.setTransform(1, 0, 0, 1, 0, 0)
       context.clearRect(0, 0, canvas.width, canvas.height)
+      context.restore()
 
       for (const dot of dotsRef.current) {
         const distanceX = dot.cx - pointerRef.current.x
