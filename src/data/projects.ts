@@ -1,8 +1,15 @@
 import type { ArchiveProject, Project } from '@/types'
 
-// Add `image: './assets/images/...'` or `links: [{ label: 'GitHub', href: '...' }]` to any project to show them on its card.
+// Add `images: ['./assets/images/...']` or `links: [{ label: 'GitHub', href: '...' }]` to any project to show them on its card.
 export const projects: Project[] = [
   {
+    slug: 'rainguard',
+    role: 'Lead System Architect & Team Lead',
+    highlights: [
+      'Led the design and development of the system, bringing together weather forecasts, GPS-tagged reports, an interactive risk map and push notifications.',
+      'Integrated a Python FastAPI service running an XGBoost rainfall model.',
+      'Developed a React admin dashboard and Firebase backend for resident verification, report moderation and alerts.',
+    ],
     number: '01',
     title: 'RainGuard',
     label: 'Capstone · Team lead',
@@ -12,6 +19,13 @@ export const projects: Project[] = [
     tags: ['Flutter', 'Firebase', 'FastAPI', 'XGBoost', 'React'],
   },
   {
+    slug: 'konektado',
+    role: 'Front-End Developer',
+    highlights: [
+      'Developed the mobile interface of the marketplace in React Native with Expo.',
+      'Designed and built responsive interfaces for the main customer and worker workflows.',
+      'Collaborated on API integration and backend features to deliver a working product for the hackathon finals.',
+    ],
     number: '02',
     title: 'Konektado',
     label: 'Hackathon · Front-end dev',
@@ -19,8 +33,28 @@ export const projects: Project[] = [
       'An AI-powered service marketplace that connects customers with skilled local workers. I built the mobile interface for both the customer and worker flows.',
     result: '3rd Runner-Up of 40 teams, Top 10 finalist.',
     tags: ['React Native', 'TypeScript', 'Node.js', 'OpenAI API'],
+    images: ['./assets/images/konektado-1.jpg', './assets/images/konektado-2.jpg'],
+    screenType: 'phone',
+    screens: [
+      { src: './assets/images/konektado/welcome.jpg', label: 'Welcome' },
+      { src: './assets/images/konektado/home.jpg', label: 'Home' },
+      { src: './assets/images/konektado/finding.jpg', label: 'Finding a match' },
+      { src: './assets/images/konektado/profile.jpg', label: 'Profile' },
+      { src: './assets/images/konektado/describe.jpg', label: 'Worker setup: describe your work' },
+      { src: './assets/images/konektado/area.jpg', label: 'Worker setup: service area' },
+      { src: './assets/images/konektado/availability.jpg', label: 'Worker setup: availability' },
+      { src: './assets/images/konektado/services.jpg', label: 'Worker setup: services' },
+      { src: './assets/images/konektado/preview.jpg', label: 'Worker setup: profile preview' },
+    ],
   },
   {
+    slug: 'coffee-lens',
+    role: 'Computer Vision & ML Developer',
+    highlights: [
+      'Developed an image classification system that identifies coffee bean roast levels from photos.',
+      'Processed and preprocessed the image datasets.',
+      'Tuned machine learning models to improve classification accuracy.',
+    ],
     number: '03',
     title: 'Coffee Lens',
     label: 'Computer vision · ML',
@@ -29,6 +63,13 @@ export const projects: Project[] = [
     tags: ['Python', 'scikit-learn', 'Image classification'],
   },
   {
+    slug: 'horologe',
+    role: 'Full-Stack Web Developer',
+    highlights: [
+      'Developed an e-commerce web application for luxury timepieces with product listings, search filtering and a cart.',
+      'Designed a normalized MySQL database to manage inventory, user accounts and sales records.',
+      'Built the PHP backend that connects the storefront to that database.',
+    ],
     number: '04',
     title: 'Horologe',
     label: 'Full-stack web',
@@ -36,6 +77,46 @@ export const projects: Project[] = [
       'An e-commerce store for luxury timepieces with product listings, search filtering and a cart, running on a PHP backend.',
     result: 'Normalized MySQL schema for inventory, accounts and sales.',
     tags: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap'],
+    images: ['./assets/images/horologe/home.jpg', './assets/images/horologe/heritage.jpg', './assets/images/horologe/craft.jpg'],
+    screenType: 'web',
+    screens: [
+      { src: './assets/images/horologe/home.jpg', label: 'Home' },
+      { src: './assets/images/horologe/heritage.jpg', label: 'Heritage' },
+      { src: './assets/images/horologe/craft.jpg', label: 'The craft' },
+      { src: './assets/images/horologe/philosophy.jpg', label: 'Philosophy' },
+      { src: './assets/images/horologe/login.jpg', label: 'Sign in' },
+      { src: './assets/images/horologe/register.jpg', label: 'Create account' },
+    ],
+  },
+  {
+    slug: 'tingi',
+    role: 'Developer',
+    highlights: [
+      'Built the Android selling screen, including selling bulk packs per piece or by weight.',
+      'Tracked stock from stock movements, with low-stock alerts and a shopping list.',
+      'Added an utang ledger for each customer, with partial payments and a running balance.',
+      'Saved sales, stock and utang on the phone so the app keeps working with no internet.',
+    ],
+    number: '05',
+    title: 'Tingi',
+    label: 'Personal · In progress',
+    description:
+      "A point-of-sale app built for our family's sari-sari store. It records sales, tracks stock down to per-piece tingi and keeps each customer's utang.",
+    result: 'Android app works offline. Cloud sync and the website are next.',
+    tags: ['React Native', 'TypeScript', 'Expo', 'Supabase'],
+    images: ['./assets/images/tingi-1.jpg', './assets/images/tingi-2.jpg'],
+    screenType: 'phone',
+    screens: [
+      { src: './assets/images/tingi/sell.jpg', label: 'Sell' },
+      { src: './assets/images/tingi/today.jpg', label: 'Today' },
+      { src: './assets/images/tingi/stock.jpg', label: 'Stock' },
+      { src: './assets/images/tingi/product.jpg', label: 'Product' },
+      { src: './assets/images/tingi/new-product.jpg', label: 'New product' },
+      { src: './assets/images/tingi/shopping-list.jpg', label: 'Shopping list' },
+      { src: './assets/images/tingi/utang.jpg', label: 'Utang' },
+      { src: './assets/images/tingi/customer.jpg', label: 'Customer ledger' },
+      { src: './assets/images/tingi/history.jpg', label: 'History' },
+    ],
   },
 ]
 
