@@ -66,6 +66,15 @@ body {
   background-image: radial-gradient(#334155 1.2px, transparent 1.3px);
 }
 
+/* Project image slider: swipe or use the dots, no visible scrollbar */
+.carousel-track {
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
 /* Toolkit marquee: two copies of each set scroll by half the track width */
 .marquee {
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
