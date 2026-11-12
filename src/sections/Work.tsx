@@ -13,7 +13,7 @@ export default function Work() {
           </h2>
         </div>
         <p className="flex-[0_1_280px] text-[13px] leading-6 text-slate-600 dark:text-slate-400">
-          A capstone, a hackathon finalist and coursework across mobile, web and machine learning.
+          A capstone, a hackathon finalist, an app for my family's store and coursework across mobile, web and machine learning.
         </p>
       </div>
 
