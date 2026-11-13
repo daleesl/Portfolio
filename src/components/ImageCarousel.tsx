@@ -8,7 +8,8 @@ type ImageCarouselProps = {
   href?: string
 }
 
-const arrow = 'absolute top-1/2 grid size-8 -translate-y-1/2 place-items-center rounded-full bg-slate-950/70 text-white backdrop-blur-sm transition-colors hover:bg-slate-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'
+// On devices with a mouse the arrows only show while hovering or focused, so they don't cover the screenshots.
+const arrow = 'absolute top-1/2 grid size-8 -translate-y-1/2 place-items-center rounded-full bg-slate-950/70 text-white backdrop-blur-sm transition hover:bg-slate-950 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100'
 
 // Swipeable image slider with arrows and pagination dots; the controls only show with more than one image.
 export default function ImageCarousel({ images, title, href }: ImageCarouselProps) {
@@ -31,7 +32,7 @@ export default function ImageCarousel({ images, title, href }: ImageCarouselProp
   }
 
   return (
-    <div className="dot-pattern relative aspect-video overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
+    <div className="group dot-pattern relative aspect-video overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
       <div
         className="carousel-track flex size-full snap-x snap-mandatory overflow-x-auto"
         ref={trackRef}

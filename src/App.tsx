@@ -1,6 +1,7 @@
 import { useProjectRoute } from '@/hooks/useProjectRoute'
 import { useRevealOnScroll } from '@/hooks/useRevealOnScroll'
 import { useTheme } from '@/hooks/useTheme'
+import AllProjects from '@/sections/AllProjects'
 import Archive from '@/sections/Archive'
 import CaseStudy from '@/sections/CaseStudy'
 import Contact from '@/sections/Contact'
@@ -14,16 +15,18 @@ import Work from '@/sections/Work'
 
 function App() {
   const { darkMode, toggleTheme } = useTheme()
-  const projectSlug = useProjectRoute()
-  useRevealOnScroll(projectSlug)
+  const route = useProjectRoute()
+  useRevealOnScroll(route.page === 'case-study' ? route.slug : route.page)
 
   return (
     <div className="min-h-screen overflow-hidden border-t-4 border-slate-800 bg-white text-slate-950 transition-colors dark:bg-[#111318] dark:text-slate-100">
       <Navbar darkMode={darkMode} onToggleTheme={toggleTheme} />
 
       <main id="top" className="pt-16">
-        {projectSlug ? (
-          <CaseStudy slug={projectSlug} />
+        {route.page === 'case-study' ? (
+          <CaseStudy slug={route.slug} />
+        ) : route.page === 'projects' ? (
+          <AllProjects />
         ) : (
           <>
             <Hero darkMode={darkMode} />

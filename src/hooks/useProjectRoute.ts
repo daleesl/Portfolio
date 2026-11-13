@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react'
 const prefix = '#/work/'
 
 export const caseStudyHref = (slug: string) => `${prefix}${slug}`
+export const allProjectsHref = '#/projects'
 
-// The site has no router: a hash like #/work/tingi opens that project's case study.
-// Returns the project's slug, or null for the home page.
-export function useProjectRoute() {
+export type Route = { page: 'home' } | { page: 'projects' } | { page: 'case-study'; slug: string }
+
+// The site has no router: #/projects opens the full project list, and a hash like
+// #/work/tingi opens that project's case study. Anything else is the home page.
+export function useProjectRoute(): Route {
   const [hash, setHash] = useState(window.location.hash)
 
   useEffect(() => {
@@ -17,16 +20,19 @@ export function useProjectRoute() {
   }, [])
 
   const slug = hash.startsWith(prefix) ? hash.slice(prefix.length) : null
+  const isProjects = hash === allProjectsHref
 
-  // Case studies open at the top; going back to the home page returns to the linked section.
+  // Inner pages open at the top; going back to the home page returns to the linked section.
   useEffect(() => {
-    if (slug) {
+    if (slug || isProjects) {
       window.scrollTo({ top: 0, behavior: 'instant' })
       return
     }
 
     if (/^#[\w-]+$/.test(hash)) document.querySelector(hash)?.scrollIntoView({ behavior: 'instant' })
-  }, [slug, hash])
+  }, [slug, isProjects, hash])
 
-  return slug
+  if (slug) return { page: 'case-study', slug }
+  if (isProjects) return { page: 'projects' }
+  return { page: 'home' }
 }
