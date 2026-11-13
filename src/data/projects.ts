@@ -1,6 +1,7 @@
 import type { ArchiveProject, Project } from '@/types'
 
-// Add `images: ['./assets/images/...']` or `links: [{ label: 'GitHub', href: '...' }]` to any project to show them on its card.
+// Add `images: ['./assets/images/...']` or `links: [{ label: 'Visit site', href: '...' }]` to any project to show them on its card.
+// The first three projects are the ones featured on the home page.
 export const projects: Project[] = [
   {
     slug: 'rainguard',
@@ -17,6 +18,22 @@ export const projects: Project[] = [
       'A community flood monitoring system for Barangay Quiling, with weather forecasts, GPS-tagged reports, a live risk map and push alerts.',
     result: 'Cut 3-hour forecast error by up to 18% with an XGBoost model.',
     tags: ['Flutter', 'Firebase', 'FastAPI', 'XGBoost', 'React'],
+    images: ['./assets/images/rainguard-1.jpg', './assets/images/rainguard-2.jpg'],
+    screenType: 'phone',
+    screens: [
+      { src: './assets/images/rainguard/onboarding.jpg', label: 'Onboarding' },
+      { src: './assets/images/rainguard/signup.jpg', label: 'Create account' },
+      { src: './assets/images/rainguard/login.jpg', label: 'Log in' },
+      { src: './assets/images/rainguard/forgot-password.jpg', label: 'Reset password' },
+      { src: './assets/images/rainguard/home.jpg', label: 'Home: weather and rainfall outlook' },
+      { src: './assets/images/rainguard/map.jpg', label: 'Community map' },
+      { src: './assets/images/rainguard/map-flood-hazard.jpg', label: 'Map: flood hazard layer' },
+      { src: './assets/images/rainguard/flood-hazard-info.jpg', label: 'Flood hazard notice' },
+      { src: './assets/images/rainguard/report-form.jpg', label: 'Report a rain or flood update' },
+      { src: './assets/images/rainguard/report-location.jpg', label: 'Choose report location' },
+      { src: './assets/images/rainguard/help.jpg', label: 'Help' },
+      { src: './assets/images/rainguard/emergency-info.jpg', label: 'Emergency info' },
+    ],
   },
   {
     slug: 'konektado',
@@ -48,47 +65,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'coffee-lens',
-    role: 'Computer Vision & ML Developer',
-    highlights: [
-      'Developed an image classification system that identifies coffee bean roast levels from photos.',
-      'Processed and preprocessed the image datasets.',
-      'Tuned machine learning models to improve classification accuracy.',
-    ],
-    number: '03',
-    title: 'Coffee Lens',
-    label: 'Computer vision · ML',
-    description:
-      'An image classifier that identifies coffee bean roast levels (green, light and medium) from photos, trained on a dataset I cleaned and preprocessed.',
-    tags: ['Python', 'scikit-learn', 'Image classification'],
-  },
-  {
-    slug: 'horologe',
-    role: 'Full-Stack Web Developer',
-    highlights: [
-      'Developed an e-commerce web application for luxury timepieces with product listings, search filtering and a cart.',
-      'Designed a normalized MySQL database to manage inventory, user accounts and sales records.',
-      'Built the PHP backend that connects the storefront to that database.',
-    ],
-    number: '04',
-    title: 'Horologe',
-    label: 'Full-stack web',
-    description:
-      'An e-commerce store for luxury timepieces with product listings, search filtering and a cart, running on a PHP backend.',
-    result: 'Normalized MySQL schema for inventory, accounts and sales.',
-    tags: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap'],
-    images: ['./assets/images/horologe/home.jpg', './assets/images/horologe/heritage.jpg', './assets/images/horologe/craft.jpg'],
-    screenType: 'web',
-    screens: [
-      { src: './assets/images/horologe/home.jpg', label: 'Home' },
-      { src: './assets/images/horologe/heritage.jpg', label: 'Heritage' },
-      { src: './assets/images/horologe/craft.jpg', label: 'The craft' },
-      { src: './assets/images/horologe/philosophy.jpg', label: 'Philosophy' },
-      { src: './assets/images/horologe/login.jpg', label: 'Sign in' },
-      { src: './assets/images/horologe/register.jpg', label: 'Create account' },
-    ],
-  },
-  {
     slug: 'tingi',
     role: 'Developer',
     highlights: [
@@ -97,7 +73,7 @@ export const projects: Project[] = [
       'Added an utang ledger for each customer, with partial payments and a running balance.',
       'Saved sales, stock and utang on the phone so the app keeps working with no internet.',
     ],
-    number: '05',
+    number: '03',
     title: 'Tingi',
     label: 'Personal · In progress',
     description:
@@ -116,6 +92,47 @@ export const projects: Project[] = [
       { src: './assets/images/tingi/utang.jpg', label: 'Utang' },
       { src: './assets/images/tingi/customer.jpg', label: 'Customer ledger' },
       { src: './assets/images/tingi/history.jpg', label: 'History' },
+    ],
+  },
+  {
+    slug: 'coffee-lens',
+    role: 'Computer Vision & ML Developer',
+    highlights: [
+      'Developed an image classification system that identifies coffee bean roast levels from photos.',
+      'Processed and preprocessed the image datasets.',
+      'Tuned machine learning models to improve classification accuracy.',
+    ],
+    number: '04',
+    title: 'Coffee Lens',
+    label: 'Computer vision · ML',
+    description:
+      'An image classifier that identifies coffee bean roast levels (green, light and medium) from photos, trained on a dataset I cleaned and preprocessed.',
+    tags: ['Python', 'scikit-learn', 'Image classification'],
+  },
+  {
+    slug: 'horologe',
+    role: 'Full-Stack Web Developer',
+    highlights: [
+      'Developed an e-commerce web application for luxury timepieces with product listings, search filtering and a cart.',
+      'Designed a normalized MySQL database to manage inventory, user accounts and sales records.',
+      'Built the PHP backend that connects the storefront to that database.',
+    ],
+    number: '05',
+    title: 'Horologe',
+    label: 'Full-stack web',
+    description:
+      'An e-commerce store for luxury timepieces with product listings, search filtering and a cart, running on a PHP backend.',
+    result: 'Normalized MySQL schema for inventory, accounts and sales.',
+    tags: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap'],
+    images: ['./assets/images/horologe/home.jpg', './assets/images/horologe/heritage.jpg', './assets/images/horologe/craft.jpg'],
+    screenType: 'web',
+    screens: [
+      { src: './assets/images/horologe/home.jpg', label: 'Home' },
+      { src: './assets/images/horologe/heritage.jpg', label: 'Heritage' },
+      { src: './assets/images/horologe/craft.jpg', label: 'The craft' },
+      { src: './assets/images/horologe/philosophy.jpg', label: 'Philosophy' },
+      { src: './assets/images/horologe/login.jpg', label: 'Sign in' },
+      { src: './assets/images/horologe/register.jpg', label: 'Create account' },
     ],
   },
 ]
