@@ -1,41 +1,53 @@
-import { ArrowUpRight, Download } from 'lucide-react'
-import { email, githubUrl, resumeUrl } from '@/data/profile'
-import { container } from '@/lib/ui'
+import { ChevronRight, Mail } from 'lucide-react'
+import { FaLinkedin } from 'react-icons/fa'
+import { email, linkedinUrl } from '@/data/profile'
+import { eyebrow, section } from '@/lib/ui'
+
+const contactCards = [
+  { label: 'Email', value: email, href: `mailto:${email}`, icon: Mail },
+  { label: "Let's connect", value: 'LinkedIn', href: linkedinUrl, icon: FaLinkedin },
+]
 
 export default function Contact() {
   return (
-    <section className={`${container} mb-20`} id="contact" aria-labelledby="contact-title">
-      <div className="rounded-2xl bg-slate-950 p-7 text-white sm:p-10 md:p-14 dark:bg-slate-100 dark:text-slate-950" data-reveal>
-        <p className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-slate-400 dark:text-slate-500">
-          Have something in mind?
-        </p>
-        <h2 className="mt-5 max-w-2xl text-3xl leading-tight font-medium md:text-5xl" id="contact-title">
-          Let's build something clear, useful, and memorable.
-        </h2>
-        <p className="mt-5 max-w-lg text-[15px] leading-7 text-slate-300 dark:text-slate-600">
-          Have a project, role or idea in mind? Email is the fastest way to reach me.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-x-7 gap-y-2 font-mono text-xs font-medium uppercase tracking-wide">
-          <a className="inline-flex min-h-11 items-center gap-2 border-b border-current" href={`mailto:${email}`}>
-            {email} <ArrowUpRight size={16} />
-          </a>
-          <a
-            className="inline-flex min-h-11 items-center gap-2 text-slate-300 hover:text-white dark:text-slate-600 dark:hover:text-slate-950"
-            href={githubUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub <ArrowUpRight size={16} />
-          </a>
-          <a
-            className="inline-flex min-h-11 items-center gap-2 text-slate-300 hover:text-white dark:text-slate-600 dark:hover:text-slate-950"
-            href={resumeUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Résumé (PDF) <Download size={16} />
-          </a>
+    <section className={`${section} mb-8`} id="contact" aria-labelledby="contact-title">
+      <div className="grid items-center gap-10 md:grid-cols-[1fr_320px]" data-reveal>
+        <div>
+          <p className={eyebrow}>Contact</p>
+          <h2 className="mt-3 font-pixel text-3xl font-normal lowercase md:text-[40px]" id="contact-title">
+            Let's work together.
+          </h2>
+          <p className="mt-5 max-w-md text-[15px] leading-7 text-slate-600 dark:text-slate-400">
+            I'm looking for a software engineering or web development internship. Whether you're hiring, building
+            something new or want to talk about a project, I'd love to hear from you.
+          </p>
         </div>
+
+        <ul className="grid gap-3">
+          {contactCards.map(({ label, value, href, icon: Icon }) => (
+            <li key={label}>
+              <a
+                className="group flex items-center gap-4 rounded-xl border border-slate-200 p-4 transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:hover:border-slate-700 dark:hover:bg-slate-900"
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel="noreferrer"
+              >
+                <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  <Icon size={18} aria-hidden="true" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className={`${eyebrow} block`}>{label}</span>
+                  <span className="mt-0.5 block truncate text-sm">{value}</span>
+                </span>
+                <ChevronRight
+                  className="shrink-0 text-slate-400 transition-transform group-hover:translate-x-0.5"
+                  size={16}
+                  aria-hidden="true"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )
