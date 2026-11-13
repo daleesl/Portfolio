@@ -23,7 +23,7 @@ export default function Hero({ darkMode }: { darkMode: boolean }) {
 
       <div className={`${container} pt-12 pb-20 md:pt-16 md:pb-24`}>
         <p className="font-mono text-[13px] text-slate-500 dark:text-slate-400" data-reveal>
-          <span className="text-sky-700 dark:text-sky-400">dale@calamba</span>:~$ whoami
+          <span className="text-sky-700 dark:text-sky-400">dale.lee@dev</span>:~$ whoami
         </p>
 
         <div className="mt-5 flex flex-wrap items-center gap-6 md:gap-7" data-reveal>
@@ -93,9 +93,9 @@ export default function Hero({ darkMode }: { darkMode: boolean }) {
               View Resume <ChevronRight size={16} />
             </a>
             <span className="mx-1.5 h-7 w-px bg-slate-200 dark:bg-slate-800" />
-            {socialLinks.map(({ label, href, icon: Icon }) => (
+            {socialLinks.map(({ label, href, icon: Icon, hover }) => (
               <a
-                className="grid size-11 place-items-center text-slate-500 transition hover:-translate-y-0.5 hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400"
+                className={`grid size-11 place-items-center text-slate-500 transition hover:-translate-y-0.5 dark:text-slate-400 ${hover}`}
                 key={label}
                 href={href}
                 target={href.startsWith('http') ? '_blank' : undefined}
