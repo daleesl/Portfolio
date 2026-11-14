@@ -1,0 +1,214 @@
+/* Accordion photo gallery, adapted from React Bits' AccordionGallery. Sizes and the media width are set from the component. */
+.accordion-gallery {
+  --ag-gap: 8px;
+  --ag-radius: 14px;
+  --ag-media-size: 320px;
+
+  display: flex;
+  gap: var(--ag-gap);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  perspective: 1400px;
+}
+
+.accordion-gallery--vertical {
+  flex-direction: column;
+  perspective: none;
+}
+
+.ag-panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--ag-radius);
+  transform-style: preserve-3d;
+  background: #e2e8f0;
+  box-shadow: 0 10px 30px -18px rgb(15 23 42 / 0.6);
+  will-change: flex-grow, transform;
+}
+
+.dark .ag-panel {
+  background: #1e293b;
+}
+
+.ag-panel__link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: inherit;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The panel clips its contents, so the focus ring is drawn inside it, above the photo. */
+.ag-panel__link:focus-visible::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 2px #38bdf8;
+}
+
+.ag-panel__frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.ag-panel__media {
+  --ag-gray: 1;
+  --ag-dim: 0.35;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--ag-media-size);
+  height: 100%;
+  filter: grayscale(var(--ag-gray));
+  will-change: transform, filter;
+}
+
+.accordion-gallery--vertical .ag-panel__media {
+  width: 100%;
+  height: var(--ag-media-size);
+}
+
+.ag-panel__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ag-panel__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 40%, rgb(7 8 11 / 0.82) 100%),
+    rgb(7 8 11 / var(--ag-dim, 0.35));
+}
+
+/* Details of the open panel, over the bottom of its photo. */
+.ag-panel__label {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  gap: 14px;
+  color: #ffffff;
+  pointer-events: none;
+  text-shadow: 0 2px 14px rgb(0 0 0 / 0.55);
+}
+
+.ag-panel__bar {
+  flex: 0 0 auto;
+  align-self: stretch;
+  width: 3px;
+  border-radius: 3px;
+  background: #38bdf8;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 0 12px rgb(56 189 248 / 0.6);
+}
+
+.ag-panel__detail {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ag-panel__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #7dd3fc;
+}
+
+.ag-panel__badge {
+  border: 1px solid rgb(255 255 255 / 0.4);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.ag-panel__title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.ag-panel__summary {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-width: 460px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgb(255 255 255 / 0.82);
+}
+
+.ag-panel__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Title of a closed panel, running up the strip (across it on phones). */
+.ag-panel__side {
+  position: absolute;
+  bottom: 18px;
+  left: 16px;
+  z-index: 2;
+  max-height: calc(100% - 36px);
+  overflow: hidden;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-shadow: 0 2px 14px rgb(0 0 0 / 0.6);
+  pointer-events: none;
+}
+
+.accordion-gallery--vertical .ag-panel__side {
+  top: 50%;
+  right: 16px;
+  bottom: auto;
+  max-height: none;
+  writing-mode: horizontal-tb;
+  transform: translateY(-50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ag-panel,
+  .ag-panel__media {
+    will-change: auto;
+  }
+}
