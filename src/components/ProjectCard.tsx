@@ -11,10 +11,7 @@ export default function ProjectCard({ project, compact = false }: { project: Pro
   const href = caseStudyHref(project.slug)
 
   return (
-    <article
-      className="flex h-full flex-col rounded-xl border border-dashed border-slate-300 p-2.5 dark:border-slate-700"
-      data-reveal
-    >
+    <article className="flex h-full flex-col rounded-xl border border-dashed border-slate-300 p-2.5 dark:border-slate-700">
       {project.images && project.images.length > 0 ? (
         <ImageCarousel images={project.images} title={project.title} href={href} />
       ) : (

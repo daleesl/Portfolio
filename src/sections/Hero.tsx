@@ -1,5 +1,6 @@
 import { ChevronRight } from 'lucide-react'
 import { MdVerified } from 'react-icons/md'
+import AnimatedContent from '@/components/AnimatedContent'
 import DotGrid from '@/components/DotGrid'
 import { currentlyBuilding, facts, resumeUrl, socialLinks } from '@/data/profile'
 import { container, eyebrow } from '@/lib/ui'
@@ -22,14 +23,16 @@ export default function Hero({ darkMode }: { darkMode: boolean }) {
       </div>
 
       <div className={`${container} pt-12 pb-20 md:pt-16 md:pb-24`}>
-        <p className="font-mono text-[13px] text-slate-500 dark:text-slate-400" data-reveal>
-          <span className="text-sky-700 dark:text-sky-400">dale.lee@dev</span>:~$ whoami
-        </p>
+        <AnimatedContent>
+          <p className="font-mono text-[13px] text-slate-500 dark:text-slate-400">
+            <span className="text-sky-700 dark:text-sky-400">dale.lee@dev</span>:~$ whoami
+          </p>
+        </AnimatedContent>
 
-        <div className="mt-5 flex flex-wrap items-center gap-6 md:gap-7" data-reveal>
+        <AnimatedContent className="mt-5 flex flex-wrap items-center gap-6 md:gap-7" delay={0.05} blur={4}>
           <img
             className="size-28 shrink-0 rounded-full object-cover shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 md:size-39"
-            src="./assets/images/profile-pic.jpg"
+            src="/assets/images/profile-pic.jpg"
             alt="Dale Lee"
           />
           <div className="flex flex-col gap-2.5">
@@ -48,12 +51,12 @@ export default function Hero({ darkMode }: { darkMode: boolean }) {
               <span className="terminal-cursor ml-1 inline-block h-4 w-2 bg-sky-500" aria-hidden="true" />
             </p>
           </div>
-        </div>
+        </AnimatedContent>
 
-        <div className="mt-12" data-reveal>
+        <AnimatedContent className="mt-12" delay={0.1}>
           <h2 className="text-[32px] leading-[1.12] font-[650] tracking-tight md:text-[46px]">
-            I build apps,{' '}
-            <span className="font-pixel font-normal tracking-normal text-sky-600 dark:text-sky-400">end to end.</span>
+            Learning by building{' '}
+            <span className="font-pixel font-normal tracking-normal text-sky-600 dark:text-sky-400">real apps.</span>
           </h2>
           <p className="mt-4 max-w-[680px] text-[17px] leading-[1.85] text-slate-600 dark:text-slate-400">
             I'm an IT student at PUP Santo Tomas who builds web and mobile apps. I use{' '}
@@ -107,7 +110,7 @@ export default function Hero({ darkMode }: { darkMode: boolean }) {
               </a>
             ))}
           </div>
-        </div>
+        </AnimatedContent>
       </div>
     </section>
   )

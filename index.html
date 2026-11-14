@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f7f7f4" />
+    <meta name="theme-color" content="#111318" />
+    <script>
+      // Dark by default, set before the page draws so it never flashes light; only a visitor's own choice overrides it.
+      try {
+        if (localStorage.getItem('dale-theme-choice') !== 'light') document.documentElement.classList.add('dark')
+      } catch {
+        document.documentElement.classList.add('dark')
+      }
+    </script>
     <meta
       name="description"
       content="Portfolio of Dale Lee, an IT student at PUP Santo Tomas who builds web and mobile apps."
@@ -14,16 +22,16 @@
       property="og:description"
       content="Web, mobile and machine learning projects by Dale Lee."
     />
-    <meta property="og:image" content="./og.png" />
+    <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dale Lee — Developer Portfolio" />
     <meta
       name="twitter:description"
       content="Web, mobile and machine learning projects by Dale Lee."
     />
-    <meta name="twitter:image" content="./og.png" />
-    <link rel="icon" type="image/svg+xml" href="./assets/Logo/black-logo.svg" media="(prefers-color-scheme: light)" />
-    <link rel="icon" type="image/svg+xml" href="./assets/Logo/white-logo.svg" media="(prefers-color-scheme: dark)" />
+    <meta name="twitter:image" content="/og.png" />
+    <link rel="icon" type="image/svg+xml" href="/assets/Logo/black-logo.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/svg+xml" href="/assets/Logo/white-logo.svg" media="(prefers-color-scheme: dark)" />
     <title>Dale Lee — Developer Portfolio</title>
   </head>
   <body>

@@ -12,7 +12,7 @@ export default function CaseStudy({ slug }: { slug: string }) {
     return (
       <section className={`${container} py-24`}>
         <h1 className="font-pixel text-3xl font-normal lowercase">Project not found.</h1>
-        <a className={`${backLink} mt-4`} href="#work"><ArrowLeft size={16} /> All work</a>
+        <a className={`${backLink} mt-4`} href="/#work"><ArrowLeft size={16} /> All work</a>
       </section>
     )
   }
@@ -25,7 +25,7 @@ export default function CaseStudy({ slug }: { slug: string }) {
   return (
     <>
       <section className={`${container} pt-8 pb-12`}>
-        <a className={backLink} href="#work"><ArrowLeft size={16} /> All work</a>
+        <a className={backLink} href="/#work"><ArrowLeft size={16} /> All work</a>
 
         <p className={`${eyebrow} mt-6 flex gap-2`}>
           <span className="text-sky-700 dark:text-sky-400">{project.number}</span>

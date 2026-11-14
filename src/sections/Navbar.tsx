@@ -27,19 +27,19 @@ export default function Navbar({ darkMode, onToggleTheme }: NavbarProps) {
       }`}
     >
       <nav className={`${container} flex min-h-16 items-center`} aria-label="Primary navigation">
-        <a className="mr-auto grid size-11 place-items-center" href="#top" aria-label="Dale Lee, home">
+        <a className="mr-auto grid size-11 place-items-center" href="/#top" aria-label="Dale Lee, home">
           <img
             className="size-8 object-contain"
-            src={darkMode ? './assets/Logo/white-logo.svg' : './assets/Logo/black-logo.svg'}
+            src={darkMode ? '/assets/Logo/white-logo.svg' : '/assets/Logo/black-logo.svg'}
             alt=""
             aria-hidden="true"
           />
         </a>
 
         <div className="flex font-mono text-[11px] uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          <a className="inline-flex min-h-11 items-center px-2 transition-colors hover:text-slate-950 dark:hover:text-white" href="#work">Work</a>
-          <a className="hidden min-h-11 items-center px-2 transition-colors hover:text-slate-950 dark:hover:text-white min-[470px]:inline-flex" href="#education">Education</a>
-          <a className="inline-flex min-h-11 items-center px-2 transition-colors hover:text-slate-950 dark:hover:text-white" href="#contact">Contact</a>
+          <a className="inline-flex min-h-11 items-center px-2 transition-colors hover:text-slate-950 dark:hover:text-white" href="/#work">Work</a>
+          <a className="hidden min-h-11 items-center px-2 transition-colors hover:text-slate-950 dark:hover:text-white min-[470px]:inline-flex" href="/#education">Education</a>
+          <a className="inline-flex min-h-11 items-center px-2 transition-colors hover:text-slate-950 dark:hover:text-white" href="/#contact">Contact</a>
         </div>
 
         <div className="ml-3 flex items-center gap-2 before:h-7 before:w-px before:bg-slate-200 dark:before:bg-slate-800 sm:ml-4">

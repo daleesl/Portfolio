@@ -1,15 +1,16 @@
 import { ArrowLeft } from 'lucide-react'
+import AnimatedContent from '@/components/AnimatedContent'
 import ProjectCard from '@/components/ProjectCard'
 import { projects } from '@/data/projects'
 import { container } from '@/lib/ui'
 
-// The full project list, opened from "View all projects" on the home page (#/projects).
+// The full project list, opened from "View all projects" on the home page (/projects).
 export default function AllProjects() {
   return (
     <section className={`${container} pt-8 pb-20`} aria-labelledby="all-projects-title">
       <a
         className="inline-flex min-h-11 items-center gap-2 font-mono text-[11px] uppercase tracking-wide text-slate-500 transition-colors hover:text-slate-950 dark:text-slate-400 dark:hover:text-white"
-        href="#work"
+        href="/#work"
       >
         <ArrowLeft size={16} /> Back to home
       </a>
@@ -21,9 +22,9 @@ export default function AllProjects() {
         A capstone, a hackathon finalist, an app for my family's store and coursework across mobile, web and machine learning.
       </p>
 
-      <div className="mt-12 grid gap-5 sm:grid-cols-2">
+      <AnimatedContent className="mt-12 grid gap-5 sm:grid-cols-2" stagger={0.05}>
         {projects.map((project) => <ProjectCard project={project} key={project.slug} />)}
-      </div>
+      </AnimatedContent>
     </section>
   )
 }

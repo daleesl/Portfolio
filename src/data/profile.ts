@@ -5,7 +5,7 @@ export const email = 'daleandrewslee@gmail.com'
 export const githubUrl = 'https://github.com/daleesl'
 export const linkedinUrl = 'https://www.linkedin.com/in/daleandrewlee/'
 // Drop the PDF into public/assets/ to make the resume buttons work.
-export const resumeUrl = './assets/Dale_Andrew_Lee_Resume.pdf'
+export const resumeUrl = '/assets/Dale_Andrew_Lee_Resume.pdf'
 
 export const facts = [
   { label: 'Focus', value: 'Web, mobile & ML' },

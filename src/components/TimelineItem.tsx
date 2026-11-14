@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import AnimatedContent from '@/components/AnimatedContent'
 
 // Date on the left, details on the right. Used by Experience and Education.
 export default function TimelineItem({
@@ -13,7 +14,7 @@ export default function TimelineItem({
   children: ReactNode
 }) {
   return (
-    <div className="flex flex-wrap gap-x-10 gap-y-2" data-reveal>
+    <AnimatedContent className="flex flex-wrap gap-x-10 gap-y-2" stagger={0.05}>
       <p className="mt-1 w-36 shrink-0 font-mono text-[11px] uppercase tracking-wide text-slate-500 dark:text-slate-400">
         {date}
       </p>
@@ -23,6 +24,6 @@ export default function TimelineItem({
         </h3>
         {children}
       </div>
-    </div>
+    </AnimatedContent>
   )
 }

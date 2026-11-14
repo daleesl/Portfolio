@@ -1,5 +1,6 @@
 import { ChevronRight, Mail } from 'lucide-react'
 import { FaLinkedin } from 'react-icons/fa'
+import AnimatedContent from '@/components/AnimatedContent'
 import { email, linkedinUrl } from '@/data/profile'
 import { eyebrow, section } from '@/lib/ui'
 
@@ -11,7 +12,7 @@ const contactCards = [
 export default function Contact() {
   return (
     <section className={`${section} mb-8`} id="contact" aria-labelledby="contact-title">
-      <div className="grid items-center gap-10 md:grid-cols-[1fr_320px]" data-reveal>
+      <AnimatedContent className="grid items-center gap-10 md:grid-cols-[1fr_320px]" stagger={0.06}>
         <div>
           <p className={eyebrow}>Contact</p>
           <h2 className="mt-3 font-pixel text-3xl font-normal lowercase md:text-[40px]" id="contact-title">
@@ -48,7 +49,7 @@ export default function Contact() {
             </li>
           ))}
         </ul>
-      </div>
+      </AnimatedContent>
     </section>
   )
 }

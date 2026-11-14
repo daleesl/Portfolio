@@ -32,9 +32,41 @@
   --font-pixel: "Geist Pixel Square", "Geist Mono", ui-monospace, monospace;
 }
 
+/* Smooth scrolling comes from Lenis (src/lib/smoothScroll.ts), so the browser's own smooth scroll stays off. */
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 88px;
+}
+
+/* Lenis' recommended base styles. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: clip;
+}
+
+/* Custom arrowhead cursor (mouse only; the hotspot 6 4 is its tip, where clicks land and sparks start).
+   Links and buttons get a blue one so clickable things still stand out. */
+html {
+  cursor: url("/assets/cursors/arrow.svg") 6 4, auto;
+}
+
+a,
+button,
+[role="button"],
+summary,
+label[for] {
+  cursor: url("/assets/cursors/arrow-link.svg") 6 4, pointer;
 }
 
 body {
@@ -43,17 +75,6 @@ body {
   font-family: "Geist", system-ui, sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
-}
-
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 520ms ease, transform 520ms ease;
-}
-
-[data-reveal].is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Placeholder texture for project cards without a screenshot */
@@ -150,20 +171,11 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  [data-reveal] {
-    opacity: 1;
-    transform: none;
   }
 }
