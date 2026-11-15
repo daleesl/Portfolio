@@ -37,9 +37,7 @@ function toRoute(path: string): Route {
   return { page: 'home' }
 }
 
-// The site has no router library: /projects opens the full project list, /toolkit the full tech stack,
-// /events the list of events, /events/<slug> one event, and /work/tingi that project's case study. Anything else is the home page. Vercel serves index.html
-// for every path (vercel.json), and links inside the site switch pages without reloading.
+// no router library: the path picks the page, unknown paths show home
 export function useProjectRoute(): Route {
   const [location, setLocation] = useState(readLocation)
   const route = toRoute(location.path)

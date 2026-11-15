@@ -3,8 +3,7 @@ import EventCard from '@/components/EventCard'
 import { events } from '@/data/events'
 import { container } from '@/lib/ui'
 
-// Every event as a card, opened from "View all" in the home page events section (/events).
-// Each card opens that event's own page.
+// all events as cards (/events), each opening its own page
 export default function EventsPage() {
   return (
     <section className={`${container} pt-8 pb-20`} aria-labelledby="events-page-title">

@@ -52,10 +52,7 @@ function useMediaQuery(query: string) {
   return matches
 }
 
-// A row of panels where one is open and the rest are narrow strips; adapted from React Bits' AccordionGallery.
-// The open panel shows its details over the photo, and closed ones show their title along the strip.
-// Hovering (on a mouse), focusing or tapping a panel opens it, and clicking the open one follows its link.
-// On phones it becomes a column so tapping still opens each panel.
+// accordion panels adapted from React Bits; hover, focus or tap opens one
 export default function AccordionGallery({
   items,
   label,

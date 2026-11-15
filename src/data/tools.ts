@@ -30,8 +30,7 @@ import {
 } from 'react-icons/si'
 import type { Tool, ToolCategory, ToolRow } from '@/types'
 
-// Each row scrolls in the toolkit marquee; `duration` is seconds per loop (higher is slower).
-// `color` is the brand colour; tools without one (black logos) follow light and dark mode.
+// each row scrolls in the marquee, duration is seconds per loop
 export const toolRows: ToolRow[] = [
   {
     duration: 70,
@@ -104,8 +103,7 @@ export const toolCategories: ToolCategory[] = [
   { title: 'Design & Tools', tools: pick('Figma', 'Git', 'GitHub') },
 ]
 
-// Logos for the tags on project cards, keyed by the tag text in projects.ts.
-// `color` is the brand colour; leave it out for black logos so they follow light and dark mode.
+// project card tag logos keyed by tag text; leave color off for black ones
 export const techIcons: Record<string, Pick<Tool, 'icon'> & { color?: string }> = {
   Flutter: { icon: SiFlutter, color: '#02569B' },
   Firebase: { icon: SiFirebase, color: '#FFA000' },

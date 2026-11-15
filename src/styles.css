@@ -55,8 +55,7 @@ html.lenis body {
   overflow: clip;
 }
 
-/* Custom arrowhead cursor (mouse only; the hotspot 6 4 is its tip, where clicks land and sparks start).
-   Links and buttons get a blue one so clickable things still stand out. */
+/* arrow cursor, hotspot 6 4 is the tip; links and buttons get a blue one */
 html {
   cursor: url("/assets/cursors/arrow.svg") 6 4, auto;
 }

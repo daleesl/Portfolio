@@ -12,8 +12,7 @@ type ClickSparkProps = {
   radius?: number
   // Length of a burst, in ms.
   duration?: number
-  // Angle the lines fan across and where the fan points, in degrees (0 is up, -45 is up-left).
-  // The default fan gives lines pointing lower-left, left, up-left, up and up-right (over the cursor).
+  // fan angle and direction in degrees (0 is up, -45 is up-left)
   spread?: number
   direction?: number
 }
@@ -23,8 +22,7 @@ const smoothstep = (from: number, to: number, value: number) => {
   return t * t * (3 - 2 * t)
 }
 
-// A small burst of lines wherever the page is clicked or tapped; adapted from React Bits' ClickSpark (line shape).
-// Draws on one see-through layer over the page, so it never blocks clicks. Off for people who ask for reduced motion.
+// click spark burst adapted from React Bits, on a click-through layer
 export default function ClickSpark({
   color,
   count = 5,
@@ -73,8 +71,7 @@ export default function ClickSpark({
           continue
         }
 
-        // Each line appears whole, then vanishes from the end nearest the cursor outward:
-        // its inner end slides out to meet the outer end, which only drifts a little.
+        // lines appear whole, then shrink away from the cursor
         const eased = 1 - Math.pow(1 - progress, 3)
         const outer = gap + size + radius * eased
         const distance = gap + (size + radius) * eased

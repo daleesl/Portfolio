@@ -1,7 +1,6 @@
 import type { Project } from '@/types'
 
-// Add `images: ['/assets/images/...']` or `links: [{ label: 'Visit site', href: '...' }]` to any project to show them on its card.
-// The first three projects are the ones featured on the home page.
+// the first three projects show on the home page; images and links are optional
 export const projects: Project[] = [
   {
     slug: 'rainguard',

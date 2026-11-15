@@ -14,8 +14,7 @@ type PhotoViewerProps = {
 
 const control = 'grid size-11 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition-colors hover:bg-white/15 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400'
 
-// Full-screen photo viewer built on <dialog>: Esc closes it, focus stays inside, and the arrow keys
-// or buttons move between photos.
+// full-screen photo viewer on <dialog>: Esc closes, arrows change photo
 export default function PhotoViewer({ photos, title, index, onIndexChange, onClose }: PhotoViewerProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const isOpen = index !== null

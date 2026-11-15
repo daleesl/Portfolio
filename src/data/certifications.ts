@@ -2,8 +2,7 @@ import { SiCisco } from 'react-icons/si'
 import { eventHref } from '@/hooks/useProjectRoute'
 import type { Certification } from '@/types'
 
-// Newest first. Put certificate files (a PDF and/or pictures of it) in public/assets/certificates/
-// with a plain name (no email or IDs).
+// newest first; files go in public/assets/certificates/ with a plain name
 export const certifications: Certification[] = [
   {
     kind: 'Award',

@@ -1,8 +1,6 @@
 import type { PortfolioEvent } from '@/types'
 
-// Newest first. Put photos in public/assets/images/events/<slug>/, resized to about 1600px wide
-// (ideally under 300 KB each), and list them as { src: '/assets/images/events/<slug>/photo.jpg', caption: '...' }.
-// The first photo is the cover. An event with no photos shows "Photos coming soon".
+// newest first; photos go in public/assets/images/events/<slug>/, first is the cover
 export const events: PortfolioEvent[] = [
   {
     slug: 'rainguard-mdrrmc-talisay',

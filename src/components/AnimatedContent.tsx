@@ -5,8 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Photos change the page height as they load, which moves where each reveal should start,
-// so re-measure shortly after any image finishes loading.
+// re-measure after images load, since photos shift where reveals start
 let refreshTimer: number | undefined
 document.addEventListener(
   'load',
@@ -38,8 +37,7 @@ type AnimatedContentProps = HTMLAttributes<HTMLDivElement> & {
   staggerFrom?: 'start' | 'end' | 'center' | 'edges' | 'random'
 }
 
-// Slides and fades its content in the first time it scrolls into view; adapted from React Bits' AnimatedContent.
-// People who ask for reduced motion see the content straight away.
+// slide-and-fade reveal on scroll (React Bits), skipped for reduced motion
 export default function AnimatedContent({
   children,
   distance = 24,

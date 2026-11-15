@@ -6,8 +6,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 let lenis: Lenis | null = null
 
-// Turns mouse-wheel steps into a glide. Touch scrolling stays native, and people who ask for reduced motion
-// keep normal scrolling. Runs on GSAP's clock so the scroll reveals stay in step. Returns a cleanup function.
+// glide on wheel steps (not touch or reduced motion); returns cleanup
 export function startSmoothScroll() {
   if (lenis || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return () => {}
 
@@ -36,9 +35,7 @@ export function resumeSmoothScroll() {
   lenis?.start()
 }
 
-// Brings a section into view below the navbar (both ways honor scroll-padding-top in styles.css);
-// `smooth` glides there instead of jumping.
-// Lenis re-measures the page first, because a page that just opened can be taller than the last one.
+// scroll a section into view below the navbar, gliding when smooth is true
 export function scrollToElement(target: Element, smooth: boolean) {
   if (!lenis) {
     target.scrollIntoView({ behavior: smooth ? 'smooth' : 'instant' })
