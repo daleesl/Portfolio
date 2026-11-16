@@ -55,14 +55,13 @@ export default function Hero({ darkMode }: { darkMode: boolean }) {
 
         <AnimatedContent className="mt-12" delay={0.1}>
           <h2 className="text-[32px] leading-[1.12] font-[650] tracking-tight md:text-[46px]">
-            Learning by building{' '}
-            <span className="font-pixel font-normal tracking-normal text-sky-600 dark:text-sky-400">real apps.</span>
+            Learning by{' '}
+            <span className="font-pixel font-normal tracking-normal text-sky-600 dark:text-sky-400">building.</span>
           </h2>
           <p className="mt-4 max-w-[680px] text-[17px] leading-[1.85] text-slate-600 dark:text-slate-400">
-            I'm an IT student at PUP Santo Tomas who builds web and mobile apps. I use{' '}
-            <strong className="font-semibold text-slate-700 dark:text-slate-200">AI-native development</strong> to build
-            faster, and I treat every project as a chance to understand what's underneath. I'm still learning, and I
-            enjoy turning real problems into apps people can actually use.
+            I'm an IT student at PUP Santo Tomas who builds web and mobile apps. I treat every project as a chance to
+            understand what's underneath. I'm still learning, and I enjoy turning real problems into apps people can
+            actually use.
           </p>
 
           <dl className="mt-8 grid grid-cols-2 border-y border-slate-200 dark:border-slate-800 sm:grid-cols-4">
